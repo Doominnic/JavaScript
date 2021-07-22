@@ -1,0 +1,121 @@
+//CODING CHALLENGE #1
+//arrow function
+const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+
+let aveKoalas = calcAverage(85, 54, 41);
+let aveDolphins = calcAverage(23, 34, 27);
+
+function checkWinner(aveKoalas, aveDolphins) {
+
+    if (aveKoalas > aveDolphins && aveKoalas >= aveDolphins * 2) {
+        console.log(`Koalas win (${aveKoalas} vs. ${aveDolphins})`);
+    } else if (aveDolphins > aveKoalas && aveDolphins >= aveKoalas * 2) {
+        console.log(`Dolphins win (${aveDolphins} vs. ${aveKoalas})`);
+    } else {
+        console.log(`No team wins! 😢`);
+    }
+}
+
+checkWinner(aveKoalas, aveDolphins);
+
+aveKoalas = calcAverage(44, 23, 71);
+aveDolphins = calcAverage(65, 54, 49);
+
+checkWinner(aveKoalas, aveDolphins);
+
+
+//CODING CHALLENGE #2
+
+const calcTip = function (bill) {
+
+    if (bill >= 50 && bill <= 300) {
+        const tip = bill * 0.15;
+        return tip
+    } else {
+        const tip = bill * 0.20;
+        return tip
+    }
+}
+
+//or using ternary operators
+
+const calcTip = function (bill) {
+
+    return bill >= 50 && bill <= 300 ? bill * 0.5 : bill * 0.2;
+}
+
+const bills = [125, 555, 44];
+
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+
+const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+
+console.log(bills);
+console.log(tips);
+console.log(total);
+
+
+//CODING CHALLENGE #3
+
+const mark = {
+    mFullName: 'Mark Miller',
+    mMass: 78,
+    mHeight: 1.69,
+
+    calcBMI: function () {
+        this.mBMI = this.mMass / (this.mHeight ** 2);
+        return this.mBMI;
+    }
+};
+
+
+const john = {
+    jFullName: 'John Smith',
+    jMass: 92,
+    jHeight: 1.95,
+
+    calcBMI: function () {
+        this.jBMI = this.jMass / (this.jHeight ** 2);
+        return this.jBMI;
+    }
+};
+
+if (mark.calcBMI() > john.calcBMI()) {
+    console.log(`${mark.mFullName}'s BMI (${mark.mBMI}) is higher than ${john.jFullName}'s (${john.jBMI})!`);
+} else {
+    console.log(`${john.jFullName}'s BMI (${john.jBMI}) is higher than ${mark.mFullName}'s (${mark.mBMI})!`);
+}
+
+
+//CODING CHALLENGE #4
+
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+for (let i = 0; i < bills.length; i++) {
+  const tip = calcTip(bills[i]);
+  tips.push(tip);
+  totals.push(tip + bills[i]);
+}
+
+console.log(bills, tips, totals);
+
+const calcAverage = function (arr) {
+  let sum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+
+  return sum / arr.length;
+};
+
+console.log(calcAverage(totals));
+
+console.log(totals);
+console.log(bills);
